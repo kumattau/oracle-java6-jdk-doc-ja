@@ -1,0 +1,26 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+# Sample debian/rules that uses debhelper.
+# This file was originally written by Joey Hess and Craig Small.
+# As a special exception, when this file is copied by dh-make into a
+# dh-make output file, you may use that output file without restriction.
+# This special exception was added by Craig Small in version 0.37 of dh-make.
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+PACKAGE=oracle-java6-jdk-doc-ja
+
+%:
+	dh $@ 
+
+override_dh_install:
+	:
+
+override_dh_installdocs:
+	find . -path "*/debian*" -o -path "*/.xvpics*" -o -size 0 -prune -o -print | \
+	  cpio -pdum debian/$(PACKAGE)/usr/share/doc/$(PACKAGE)/
+	dh_installdocs
+
+override_dh_compress:
+	gzip -9nf debian/$(PACKAGE)/usr/share/doc/$(PACKAGE)/changelog.Debian

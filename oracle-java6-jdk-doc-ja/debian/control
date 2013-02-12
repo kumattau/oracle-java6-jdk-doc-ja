@@ -1,0 +1,12 @@
+Source: oracle-java6-jdk-doc-ja
+Section: doc
+Priority: extra
+Maintainer: kumattau <kumattau@gmail.com>
+Standards-Version: 3.9.3
+Build-Depends: debhelper (>= 8.0.0)
+
+Package: oracle-java6-jdk-doc-ja
+Architecture: all
+Depends: ${misc:Depends}
+Description: Java(TM) JDK, Standard Edition, Oracle(TM) japanese documentation
+ This documentation contains "Core API Document" and "JDK Programmer's Guide".
